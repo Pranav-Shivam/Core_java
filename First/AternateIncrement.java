@@ -7,7 +7,7 @@ public class AternateIncrement {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a no");
-        int n= sc.nextInt();
+        int n= sc.nextInt() ;
         System.out.println("The "+n+"th value of the series will be :- "+increSeries(n));
         System.out.println("The "+n+"th value of the series will be :- "+incre2(n));
         System.out.println("The "+n+"th value of the series will be :- "+incre3(n));
