@@ -1,3 +1,4 @@
+package DSA;
 import java.util.*;
 public class First_non_repeating {
     public static void main(String[] args) {
@@ -36,5 +37,32 @@ public class First_non_repeating {
             }
         }
         System.out.println("All the elements are repeating.");
+    }
+    public static int firstNonRepeat(int arr[])
+    {
+        int n= arr.length;
+        int t=Integer.MIN_VALUE;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<n;i++)
+        {
+            if (!map.containsKey(arr[i])) {
+                map.put(arr[i],1);
+
+            }
+            else
+            {
+                map.put(arr[i],map.get(arr[i])+1 );
+
+            }
+        }
+        for(int i=0;i<arr[i];i++)
+        {
+            if(map.get(arr[i])==1)
+            {
+                t=arr[i];
+                break;
+            }
+        }
+        return t;
     }
 }
