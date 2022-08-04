@@ -11,6 +11,10 @@ public class AternateIncrement {
         System.out.println("The "+n+"th value of the series will be :- "+increSeries(n));
         System.out.println("The "+n+"th value of the series will be :- "+incre2(n));
         System.out.println("The "+n+"th value of the series will be :- "+incre3(n));
+        System.out.println("The "+n+"th value of the series will be :- "+incre4(n));
+        System.out.println(productOfDigit(4571));
+        String s="stuvwxyz";
+        System.out.println(cipher(s));
     }
     public static int increSeries(int n)
     {
@@ -65,5 +69,53 @@ public class AternateIncrement {
             return 3*t;
         }
     }
+    public static int incre4(int n)
+    {
+        if(n==1 || n==0)
+        {
+            return 1;
+        }
+        if(n%2==0)
+        {
+            int k=(n-1)/2;
+            return (int)Math.pow(3,k);
+
+        }
+        else
+        {
+            int k=(n-1)/2;
+            return (int)Math.pow(2,k);
+        }
+    }
+    public static int productOfDigit(int n)
+    {
+        int p=1;
+        while(n>0)
+        {
+            int d=n%10;
+            p=p*d;
+            n=n/10;
+        }
+        return p;
+    }
+    public static String cipher(String s)
+    {
+        String str="";
+        for(int i=0;i<s.length();i++) {
+            char ch=s.charAt(i);
+            int x=(int)ch+5;
+            if(x>122)
+            {
+                x=x-122+96;
+                str=str+(char)(x);
+            }
+            else
+            {
+                str=str+(char)x;
+            }
+        }
+        return str;
+    }
+
 }
 
