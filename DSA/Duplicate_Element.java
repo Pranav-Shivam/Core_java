@@ -1,4 +1,6 @@
+package DSA;
 import java.util.*;
+
 public class Duplicate_Element
 {
     public static void main(String[] args)
