@@ -7,11 +7,11 @@ import java.util.Set;
 public class SubString {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the string ");
+        //System.out.println("Enter the string ");
         String s="abcde";
         int count=(int)countSubstring(s);
         System.out.println(count);
-        checker();
+        //checker();
     }
     public static double countSubstring(String s)
     {
