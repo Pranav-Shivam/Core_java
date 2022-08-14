@@ -8,5 +8,6 @@ public class RemoveVowel {
             S=S.replaceAll(ls[i],"");
         }
         System.out.println(S);
+        String k= String.valueOf(S.charAt(2));
     }
 }
