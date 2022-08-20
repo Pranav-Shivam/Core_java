@@ -3,6 +3,7 @@ package SDE_Sheet_Apna.Graph;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Graph_Implementation {
     private LinkedList<Integer> adj[];
@@ -49,8 +50,59 @@ public class Graph_Implementation {
             distance++;
             cur=parent[cur];
         }
+        System.out.print(source);
         System.out.println("\nThe distance is "+distance);
         return distance;
+    }
+    private boolean helperDfs(int source,int destination, boolean vis[])
+    {
+        if(source==destination)
+        {
+            return true;
+        }
+        for (int neighbour:adj[source])
+        {
+            if(!vis[neighbour])
+            {
+                vis[neighbour]=true;
+                boolean isConnected=helperDfs(neighbour,destination,vis);
+                if(isConnected)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean dfs(int source,int destination)
+    {
+        boolean vis[]=new boolean[adj.length];
+        vis[source]=true;
+        return helperDfs(source,destination,vis);
+    }
+    public boolean stackDfs(int source,int destination)
+    {
+        boolean vis[]=new boolean[adj.length];
+        vis[source]=true;
+        Stack<Integer> st=new Stack<>();
+        st.push(source);
+        while(!st.isEmpty())
+        {
+            int cur=st.pop();
+            if(cur==destination)
+            {
+                return true;
+            }
+            for (int neighbor:adj[cur])
+            {
+                if(!vis[neighbor])
+                {
+                    vis[neighbor]=true;
+                    st.push(neighbor);
+                }
+            }
+        }
+        return false;
     }
     public static void main(String[] args)
     {
@@ -70,7 +122,11 @@ public class Graph_Implementation {
         System.out.println("Enter the source and destination for whose path you want find : ");
         int sou=sc.nextInt();
         int desti=sc.nextInt();
-
-        graph.bfs(sou,desti);
+        //bfs
+        //graph.bfs(sou,desti);
+        //dfs  using stack
+        System.out.println(graph.stackDfs(sou,desti));
+        //dfs using recursion
+        System.out.println(graph.dfs(sou,desti));
     }
 }
