@@ -17,6 +17,7 @@ public class GFG_BFS {
                 int source=sc.nextInt();
                 int value=sc.nextInt();
                 adj.get(source).add(value);
+                adj.get(value).add(source);
             }
 
         ArrayList<Integer> arr=new GFG_BFS().bfsOfGraph(vertices,adj);

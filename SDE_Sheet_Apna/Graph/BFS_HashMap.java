@@ -8,9 +8,9 @@ public class BFS_HashMap {
         Scanner sc=new Scanner(System.in);
         int vertices= sc.nextInt();
         int edges=sc.nextInt();
-        LinkedHashMap<Integer, ArrayList<Integer>> adj=new LinkedHashMap<>();
+        HashMap<Integer, TreeSet<Integer>> adj=new HashMap<>();
         for (int i = 0; i < vertices; i++) {
-            adj.put(i, new ArrayList<>());
+            adj.put(i, new TreeSet<>());
         }
         for (int i = 0; i < edges; i++) {
 
@@ -18,14 +18,16 @@ public class BFS_HashMap {
             int srcVertex = sc.nextInt();
             //int srcVertex=(int)src.getValue();
             adj.get(srcVertex).add(edgeVal);
+            adj.get(edgeVal).add(srcVertex);
         }
+        new BFS_HashMap().printGraph(vertices,adj);
+        TreeSet<Integer> bfs=new BFS_HashMap().bfs(vertices,adj);
+        //System.out.println(bfs);
 
-        ArrayList<Integer> bfs=new BFS_HashMap().bfs(vertices,adj);
-        System.out.println(bfs);
     }
-    public ArrayList<Integer> bfs(int vertices,LinkedHashMap<Integer,ArrayList<Integer>> adj)
+    public TreeSet<Integer> bfs(int vertices,HashMap<Integer,TreeSet<Integer>> adj)
     {
-        ArrayList<Integer> arr=new ArrayList<>();
+        TreeSet<Integer> arr=new TreeSet<>();
         Queue<Integer> queue=new LinkedList<>();
         boolean vis[]=new boolean[vertices];
         queue.add(0);
@@ -46,5 +48,19 @@ public class BFS_HashMap {
             }
         }
         return arr;
+    }
+    public void printGraph(int v,HashMap<Integer, TreeSet<Integer>> graph)
+    {
+        for(int i = 0; i < v; i++)
+        {
+            System.out.println("Adjacency list of vertex " + i);
+            Iterator set = graph.get(i).iterator();
+
+            while (set.hasNext())
+                System.out.print(set.next() + " ");
+
+            System.out.println();
+
+        }
     }
 }

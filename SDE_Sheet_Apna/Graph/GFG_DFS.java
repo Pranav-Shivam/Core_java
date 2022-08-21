@@ -16,6 +16,7 @@ public class GFG_DFS {
                 int srcVertex=sc.nextInt();
                 int edgeValue=sc.nextInt();
                 adj.get(srcVertex).add(edgeValue);
+                adj.get(edgeValue).add(srcVertex);
             }
 
         ArrayList<Integer> dfs= new GFG_DFS().dfsOfGrap(vertices,adj);
