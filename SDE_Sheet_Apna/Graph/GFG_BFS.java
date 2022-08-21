@@ -10,16 +10,15 @@ public class GFG_BFS {
         int edge=sc.nextInt();
         ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
         System.out.println("Enter no "+ edge+" edges");
-        for (int i=0;i<vertices;i++)
-        {
-
-            adj.add(i,new ArrayList<>());
+        for (int i=0;i<vertices;i++) {
+            adj.add(i, new ArrayList<>());
+        }
             for (int j = 0; j < edge; j++) {
                 int source=sc.nextInt();
-                int destination=sc.nextInt();
-                adj.get(source).add(destination);
+                int value=sc.nextInt();
+                adj.get(source).add(value);
             }
-        }
+
         ArrayList<Integer> arr=new GFG_BFS().bfsOfGraph(vertices,adj);
         System.out.println(arr);
     }

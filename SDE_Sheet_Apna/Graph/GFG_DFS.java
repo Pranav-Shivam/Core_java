@@ -3,32 +3,25 @@ package SDE_Sheet_Apna.Graph;
 import java.util.*;
 public class GFG_DFS {
     public static void main(String[] args) {
-
-    }
-    public ArrayList<Integer> dfsOfGraph(int v, ArrayList<ArrayList<Integer>> adj) {
-        // Code here
-        Stack<Integer> st=new Stack<>();
-        ArrayList<Integer> arr=new ArrayList<>();
-        boolean vis[]=new boolean[v];
-        st.add(0);
-        while (!st.isEmpty())
-        {
-            int cur=st.pop();
-            if(vis[cur]==true)
-            {
-                continue;
-            }
-            arr.add(cur);
-            vis[cur]=true;
-            for (Integer neighbour:adj.get(cur)) {
-                if (vis[neighbour] == false) {
-                    st.push(neighbour);
-                }
-            }
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of vertices : ");
+        int vertices=sc.nextInt();
+        System.out.println("Enter the no of edges ");
+        int edge=sc.nextInt();
+        ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
+        for (int i = 0; i < vertices; i++) {
+            adj.add(i, new ArrayList<>());
         }
+            for (int j = 0; j < edge; j++) {
+                int srcVertex=sc.nextInt();
+                int edgeValue=sc.nextInt();
+                adj.get(srcVertex).add(edgeValue);
+            }
 
-        return arr;
+        ArrayList<Integer> dfs= new GFG_DFS().dfsOfGrap(vertices,adj);
+        System.out.println(dfs);
     }
+
     public ArrayList<Integer> dfsOfGrap(int V, ArrayList<ArrayList<Integer>> adj) {
         return findT(0,adj,new boolean[V],new ArrayList<Integer>());
     }
