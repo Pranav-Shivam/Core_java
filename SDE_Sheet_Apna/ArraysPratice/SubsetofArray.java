@@ -3,7 +3,7 @@ package SDE_Sheet_Apna.ArraysPratice;
 import java.util.*;
 public class SubsetofArray {
     public static void main(String[] args) {
-        int arr[]={1,2,3};
+        int arr[]={1,2,1};
         System.out.println(subsets(arr));
     }
     public static List<List<Integer>> subsets(int arr[])
