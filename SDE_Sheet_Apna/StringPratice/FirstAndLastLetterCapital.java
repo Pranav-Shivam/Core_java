@@ -14,6 +14,10 @@ public class FirstAndLastLetterCapital {
             }
         }
         System.out.println(temp.trim());
+//        StringBuilder sb=new StringBuilder("");
+//        sb.append('x');
+//        System.out.println(sb);
+
         System.out.println(Count(s));
     }
     static int Count(String s)
