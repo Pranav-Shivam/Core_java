@@ -2,7 +2,7 @@ package SDE_Sheet_Apna.ArraysPratice;
 
 public class MaximumSubArraySum {
     public static void main(String[] args) {
-        int arr[]={1,-7,2,8,4,-11,6,5,3,9,0};
+        int arr[]={5,4,-1,7,8};
         int ar=getMaxSum(arr);
         System.out.println(ar);
     }
@@ -12,7 +12,10 @@ public class MaximumSubArraySum {
         int ft=arr[0];
         for (int i = 1; i < arr.length ; i++) {
             t=Math.max(t+arr[i],arr[i]);
+            System.out.println(t);
             ft=Math.max(t,ft);
+            System.out.println(ft);
+            System.out.println("\n");
         }
         return ft;
     }

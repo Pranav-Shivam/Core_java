@@ -12,6 +12,10 @@ public class nextPermutation {
 
     static void nextPrem(int arr[])
     {
+        if(arr==null || arr.length<=1)
+        {
+            return;
+        }
         int i=arr.length-2;
         while(i>=0 && arr[i]>=arr[i+1])
         {
@@ -27,6 +31,10 @@ public class nextPermutation {
             swap(arr,i,j);
         }
         reverse(arr,i+1, arr.length -1);
+//        for (int x:arr
+//             ) {
+//            System.out.print(x+" > ");
+//        }
 
     }
     static void swap(int arr[],int i,int j)
